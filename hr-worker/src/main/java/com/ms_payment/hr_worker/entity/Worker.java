@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -22,9 +21,7 @@ public class Worker implements Serializable {
     private String name;
     @Column(name = "daily_income")
     private String dailyIncome;
-
-
-
+    
     // EQUALS HASHCODE
     @Override
     public boolean equals(Object o) {
