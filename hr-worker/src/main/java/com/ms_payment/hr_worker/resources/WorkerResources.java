@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WorkerResources {
     private final WorkerRepository workerRepository;
-    private String nome = "Ronaldo";
 
     @GetMapping
     public ResponseEntity<List<Worker>> findAllWorkers(){
