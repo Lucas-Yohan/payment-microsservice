@@ -4,6 +4,7 @@ import com.ms_payment.hr_worker.entity.Worker;
 import com.ms_payment.hr_worker.exception.EntityNotFoundException;
 import com.ms_payment.hr_worker.repository.WorkerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WorkerResources {
     private final WorkerRepository workerRepository;
-    private String nome = "Ronaldo";
 
     @GetMapping
     public ResponseEntity<List<Worker>> findAllWorkers(){

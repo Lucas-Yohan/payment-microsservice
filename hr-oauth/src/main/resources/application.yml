@@ -1,0 +1,30 @@
+# application.yml - Configuração básica Spring Boot
+spring:
+  application:
+    name: hr-oauth
+
+jackson:
+  default-property-inclusion: non_null
+
+server:
+  servlet:
+    context-path: /api
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      hr-worker:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
